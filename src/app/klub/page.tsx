@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TodaySection } from "@/components/home/TodaySection";
 import { ContactForm } from "@/components/klub/ContactForm";
 import { PageHeader } from "@/components/PageHeader";
 import { club } from "@/lib/content";
 import { formatDateRu } from "@/lib/format";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Клуб и контакты",
+  description:
+    "Императорский футбольный клуб «Дина» (Москва): год основания, основатель, прозвище «пушкари» и форма для связи с клубом.",
+  path: "/klub",
+});
 
 const facts: Array<[string, string]> = [
   ["Основан", formatDateRu(club.foundingDate)],
@@ -20,7 +29,7 @@ export default function KlubPage() {
 
   return (
     <main>
-      <Breadcrumbs current="Клуб и контакты" />
+      <Breadcrumbs current="Клуб и контакты" path="/klub" />
       <PageHeader title="Клуб и контакты" intro={club.displayFullName} />
 
       <section aria-labelledby="about-heading" className="container-site pb-20 md:pb-28">

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArchivePhoto } from "@/components/ArchivePhoto";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GalleryProvider } from "@/components/foto/GalleryProvider";
@@ -7,6 +8,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { getPhotoSlot, photos } from "@/lib/content";
 import { photoFileExists } from "@/lib/photo-fs";
 import { isArchivalEra } from "@/lib/photo-meta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "История «Дины» в фотографиях",
+  description:
+    "Фотографии ключевых моментов истории ИФК «Дина» (Москва): чемпионства России, победы в Турнире европейских чемпионов и Межконтинентальный кубок 1997 года.",
+  path: "/foto",
+});
 
 export default function FotoPage() {
   const slotIds = photos.gallery.slotIds;
@@ -26,7 +35,7 @@ export default function FotoPage() {
 
   return (
     <main>
-      <Breadcrumbs current="Фотографии" />
+      <Breadcrumbs current="Фотографии" path="/foto" />
       <PageHeader
         title={photos.gallery.title}
         intro="Моменты, за которые «Дину» помнят: чемпионства, еврокубки и Межконтинентальный кубок."

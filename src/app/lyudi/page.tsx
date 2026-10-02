@@ -1,13 +1,32 @@
+import type { Metadata } from "next";
 import { AlumniSection } from "@/components/home/AlumniSection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LegendDetailCard } from "@/components/people/LegendDetailCard";
 import { PageHeader } from "@/components/PageHeader";
 import { people } from "@/lib/content";
+import { buildMetadata } from "@/lib/seo";
+import { buildPersonSchema } from "@/lib/structured-data";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Люди «Дины»",
+  description:
+    "Константин Ерёменко, Александр Верижников, Олег Денисов и другие игроки и тренеры футзальной «Дины» (Москва) — легенды, с которыми клуб выигрывал титулы России и Европы.",
+  path: "/lyudi",
+});
+
+const legendsSchema = {
+  "@context": "https://schema.org",
+  "@graph": people.legends.map(buildPersonSchema),
+};
 
 export default function LyudiPage() {
   return (
     <main>
-      <Breadcrumbs current="Люди" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(legendsSchema) }}
+      />
+      <Breadcrumbs current="Люди" path="/lyudi" />
       <PageHeader
         title="Люди"
         intro="Футболисты, тренеры и президент, с которыми «Дина» выигрывала девять чемпионств России и три турнира европейских чемпионов."

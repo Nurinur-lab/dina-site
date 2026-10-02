@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { club } from "@/lib/content";
+import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Политика конфиденциальности",
+  ...buildMetadata({
+    title: "Политика конфиденциальности",
+    description:
+      "Политика обработки персональных данных сайта ИФК «Дина» в соответствии с Федеральным законом № 152-ФЗ.",
+    path: "/politika",
+  }),
+  // Реквизиты оператора ещё не подтверждены — страница пока черновик, индексировать её рано.
+  robots: club.requisites ? { index: true, follow: true } : { index: false, follow: true },
 };
 
 /**
@@ -17,7 +25,7 @@ export default function PolitikaPage() {
 
   return (
     <main>
-      <Breadcrumbs current="Политика конфиденциальности" />
+      <Breadcrumbs current="Политика конфиденциальности" path="/politika" />
       <PageHeader title="Политика конфиденциальности" />
 
       <article className="container-site flex flex-col gap-10 pb-20 md:pb-28">
