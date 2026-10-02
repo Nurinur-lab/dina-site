@@ -28,7 +28,10 @@ try {
     const slug = route === "/" ? "home" : route.replace(/^\//, "").replace(/\//g, "-");
     for (const vp of viewports) {
       const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
-      await page.goto(new URL(route, baseURL).toString(), { waitUntil: "networkidle" });
+      // "networkidle" иногда зависает (повторные lazy-подгрузки при скролле fullPage-скриншота) —
+      // "load" + короткая пауза надёжнее и для статических страниц этого сайта достаточно.
+      await page.goto(new URL(route, baseURL).toString(), { waitUntil: "load" });
+      await page.waitForTimeout(400);
       const file = path.join(outDir, `${slug}-${vp.label}.png`);
       await page.screenshot({ path: file, fullPage: true });
       console.log(`сохранено: ${path.relative(process.cwd(), file)}`);

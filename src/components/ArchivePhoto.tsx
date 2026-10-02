@@ -37,6 +37,8 @@ type ArchivePhotoProps = {
   priority?: boolean;
   className?: string;
   imageClassName?: string;
+  /** Для full-bleed секций (hero): размер задаёт родитель (h-dvh и т. п.), а не aspect-ratio слота. */
+  fillParent?: boolean;
 };
 
 export function ArchivePhoto({
@@ -45,19 +47,33 @@ export function ArchivePhoto({
   priority = false,
   className = "",
   imageClassName = "",
+  fillParent = false,
 }: ArchivePhotoProps) {
   const slot = getPhotoSlot(slotId);
   const filePath = path.join(process.cwd(), "public", "photos", slot.file);
   const fileExists = fs.existsSync(filePath);
   const aspectRatio = parseAspectRatio(slot.aspect);
+  const sizingStyle = fillParent ? undefined : { aspectRatio };
+  const sizingClassName = fillParent ? "h-full w-full" : "";
 
   if (!fileExists) {
+    // В full-bleed режиме (hero) типографический фолбэк конфликтует со словом-«призраком»
+    // и заголовком, которые уже стоят поверх — там фон должен быть тихим.
+    if (fillParent) {
+      return (
+        <div
+          className={`bg-night-2 relative overflow-hidden ${sizingClassName} ${className}`}
+          style={sizingStyle}
+        />
+      );
+    }
+
     return (
       <div
-        className={`bg-night-2 relative flex items-center justify-center overflow-hidden ${className}`}
-        style={{ aspectRatio, containerType: "inline-size" }}
+        className={`bg-night-2 relative flex items-center justify-center overflow-hidden ${sizingClassName} ${className}`}
+        style={{ ...sizingStyle, containerType: "inline-size" }}
       >
-        <span className="text-figure text-ivory/35 px-[8%] text-center [font-size:20cqi] break-words uppercase">
+        <span className="text-figure text-ivory/35 px-[10%] text-center [font-size:15cqi] break-words uppercase">
           {slot.fallbackText}
         </span>
         <div className="absolute inset-x-0 bottom-0 flex h-[3%] min-h-[3px]">
@@ -72,7 +88,7 @@ export function ArchivePhoto({
   const archival = isArchival(slot.era);
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ aspectRatio }}>
+    <div className={`relative overflow-hidden ${sizingClassName} ${className}`} style={sizingStyle}>
       <Image
         src={`/photos/${slot.file}`}
         alt={slot.caption ?? slot.description}

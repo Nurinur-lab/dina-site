@@ -1,11 +1,23 @@
-import { club } from "@/lib/content";
+import { AlumniSection } from "@/components/home/AlumniSection";
+import { FinalSection } from "@/components/home/FinalSection";
+import { Hero } from "@/components/home/Hero";
+import { HistorySection } from "@/components/home/HistorySection";
+import { LegendsSection } from "@/components/home/LegendsSection";
+import { PhotoPanelSection } from "@/components/home/PhotoPanelSection";
+import { ScaleSection } from "@/components/home/ScaleSection";
+import { TodaySection } from "@/components/home/TodaySection";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
-      <h1 className="text-5xl md:text-7xl">{club.shortName}</h1>
-      <p className="text-mist max-w-prose text-lg">{club.tagline}</p>
-      <p className="text-mist text-sm">Главная страница — в фазе 2.</p>
+    <main>
+      <Hero />
+      <ScaleSection />
+      <HistorySection />
+      <LegendsSection />
+      <TodaySection />
+      <AlumniSection />
+      <PhotoPanelSection />
+      <FinalSection />
     </main>
   );
 }
