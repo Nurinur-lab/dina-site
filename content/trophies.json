@@ -1,0 +1,55 @@
+{
+  "trophies": [
+    {
+      "id": "russia-champion",
+      "title": "Чемпион России",
+      "count": 9,
+      "years": [1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2014],
+      "label": "чемпионств России",
+      "featured": true,
+      "verified": true,
+      "sources": ["wiki-dina", "ffmo-dina"]
+    },
+    {
+      "id": "russia-cup",
+      "title": "Кубок России",
+      "count": 8,
+      "years": [1992, 1993, 1995, 1996, 1997, 1998, 1999, 2017],
+      "label": "Кубков России",
+      "featured": true,
+      "verified": true,
+      "note": "Источники до 2017 года указывают 7 Кубков — восьмой выигран в 2017-м.",
+      "sources": ["wiki-dina", "ffmo-dina"]
+    },
+    {
+      "id": "european-champions-tournament",
+      "title": "Турнир европейских чемпионов",
+      "count": 3,
+      "years": [1995, 1997, 1999],
+      "label": "победы в Турнире европейских чемпионов",
+      "featured": true,
+      "verified": true,
+      "sources": ["wiki-dina", "rusfutsal-dina"]
+    },
+    {
+      "id": "intercontinental-cup",
+      "title": "Межконтинентальный кубок",
+      "count": 1,
+      "years": [1997],
+      "label": "Межконтинентальный кубок",
+      "featured": true,
+      "verified": true,
+      "sources": ["rusfutsal-dina", "sport-express-1997"]
+    },
+    {
+      "id": "cis-champion",
+      "title": "Чемпион СНГ",
+      "count": 1,
+      "years": [1992],
+      "label": "чемпионство СНГ",
+      "featured": false,
+      "verified": true,
+      "sources": ["wiki-dina"]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "legends": [
+    {
+      "id": "eremenko",
+      "name": "Константин Ерёменко",
+      "role": "Нападающий",
+      "lifeYears": "1970–2010",
+      "yearsInClub": null,
+      "headline": "Лучший игрок в мини-футбол XX века",
+      "text": "Главный бомбардир «Дины» девяностых: восемь сезонов подряд, с 1992 по 1999 год, становился лучшим бомбардиром чемпионата. Его гол и решающий пенальти в финале принесли России золото Евро-1999.",
+      "featured": true,
+      "photoSlot": "legend-eremenko",
+      "sources": ["wiki-eremenko", "wiki-russia-futsal"]
+    },
+    {
+      "id": "verizhnikov",
+      "name": "Александр Верижников",
+      "role": "Капитан",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Капитан золотой «Дины»",
+      "text": "Капитан клуба и сборной России на чемпионате Европы 1999 года. Трижды выигрывал Турнир европейских чемпионов, а в начале сезона 2009/10 возглавлял «Дину» как главный тренер.",
+      "featured": true,
+      "photoSlot": "legend-verizhnikov",
+      "sources": ["wiki-verizhnikov", "sinara-1999"]
+    },
+    {
+      "id": "denisov",
+      "name": "Олег Денисов",
+      "role": "Вратарь",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Лучший игрок Межконтинентального кубка 1997",
+      "text": "Вратарь «Дины» и сборной России, чемпион Европы 1999 года. В решающей серии Межконтинентального кубка 1997 года против «Интера» получил приз лучшего игрока турнира.",
+      "featured": true,
+      "photoSlot": "legend-denisov",
+      "sources": ["sport-express-1997", "zms-list"]
+    },
+    {
+      "id": "alekberov",
+      "name": "Темур Алекберов",
+      "role": "Игрок, позже главный тренер",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Чемпион Европы 1999",
+      "text": "Один из лидеров «Дины» девяностых и сборной России, выигравшей Евро-1999. Позже возглавлял клуб как главный тренер.",
+      "featured": true,
+      "photoSlot": "legend-alekberov",
+      "sources": ["zms-list", "wiki-russia-futsal", "sportsru-decline"]
+    },
+    {
+      "id": "belyi",
+      "name": "Аркадий Белый",
+      "role": "Игрок",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Гол в решающем матче за звание лучшего клуба мира",
+      "text": "Чемпион Европы 1999 года и серебряный призёр Евро-1996. Забил третий гол «Дины» в решающем матче Межконтинентального кубка 1997 года против «Интера» (4:2).",
+      "featured": true,
+      "photoSlot": "legend-belyi",
+      "sources": ["zms-list", "sport-express-1997"]
+    },
+    {
+      "id": "markin",
+      "name": "Михаил Маркин",
+      "role": "Игрок",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Первый гол в финале Межконтинентального кубка",
+      "text": "Открыл счёт в решающем матче Межконтинентального кубка 1997 года против «Интера». Чемпион Европы 1999 года в составе сборной России.",
+      "featured": true,
+      "photoSlot": "legend-markin",
+      "sources": ["sport-express-1997", "zms-list"]
+    },
+    {
+      "id": "gorin",
+      "name": "Дмитрий Горин",
+      "role": "Игрок",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Ядро «Дины» и сборной",
+      "text": "Чемпион Европы 1999 года и серебряный призёр Евро-1996. Входил в костяк «Дины», на долгие годы ставшей базовым клубом сборной.",
+      "featured": false,
+      "photoSlot": "legend-gorin",
+      "sources": ["zms-list", "wiki-russia-futsal"]
+    },
+    {
+      "id": "abyanov",
+      "name": "Марат Абянов",
+      "role": "Игрок",
+      "lifeYears": null,
+      "yearsInClub": "1994–2001",
+      "headline": "Шесть чемпионств за семь сезонов",
+      "text": "За семь сезонов в «Дине» шесть раз стал чемпионом России, пять раз выиграл Кубок, трижды — Турнир европейских чемпионов, взял Межконтинентальный кубок. Чемпион Европы 1999 года.",
+      "featured": false,
+      "photoSlot": "legend-abyanov",
+      "sources": ["rusteam-abyanov", "zms-list"]
+    },
+    {
+      "id": "tkachuk",
+      "name": "Андрей Ткачук",
+      "role": "Игрок",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Последний гол в матче за звание лучших в мире",
+      "text": "Забил четвёртый гол в решающем матче Межконтинентального кубка 1997 года. Чемпион Европы 1999 года.",
+      "featured": false,
+      "photoSlot": "legend-tkachuk",
+      "sources": ["sport-express-1997", "zms-list"]
+    },
+    {
+      "id": "kozlov",
+      "name": "Сергей Козлов",
+      "role": "Основатель и президент",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Человек, который создал «Дину»",
+      "text": "Основал клуб в 1991 году и назвал его в честь жены. Инициатор Межконтинентального кубка, который проходил в Москве с 1997 по 2001 год.",
+      "featured": false,
+      "photoSlot": "legend-kozlov",
+      "sources": ["kozlov-wiki", "wiki-dina"]
+    },
+    {
+      "id": "bondarev",
+      "name": "Михаил Бондарев",
+      "role": "Главный тренер",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Тренер золотой эпохи",
+      "text": "Главный тренер «Дины» золотого состава. Возглавил сборную России, которая в 1999 году впервые выиграла чемпионат Европы.",
+      "featured": false,
+      "photoSlot": "legend-bondarev",
+      "sources": ["wiki-russia-futsal", "sportsru-golden-photo"]
+    },
+    {
+      "id": "andreev",
+      "name": "Семён Андреев",
+      "role": "Первый главный тренер",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "С него всё началось",
+      "text": "Первый руководитель советского футзала и первый тренер сборной. Под его руководством «Дина» в первом же сезоне стала чемпионом СНГ.",
+      "featured": false,
+      "photoSlot": "legend-andreev",
+      "sources": ["wiki-dina", "sportsru-why-dina"]
+    },
+    {
+      "id": "yudin",
+      "name": "Андрей Юдин",
+      "role": "Игрок 90-х, главный тренер",
+      "lifeYears": null,
+      "yearsInClub": null,
+      "headline": "Вернул чемпионство через 14 лет",
+      "text": "Игрок золотого состава девяностых. В 2014 году как главный тренер привёл «Дину» к чемпионству России — первому за 14 лет.",
+      "featured": false,
+      "photoSlot": "legend-yudin",
+      "sources": ["wiki-dina", "sportsru-golden-photo"]
+    }
+  ],
+  "alumni": [
+    {
+      "id": "dushkevich",
+      "name": "Константин Душкевич",
+      "linkType": "воспитанник",
+      "link": "Воспитанник «Дины», играл за клуб в 2000–2006 и 2009–2010 годах",
+      "knownFor": "Серебро Евро-2005 и бронза Евро-2007 в составе сборной России",
+      "photoSlot": "alumni-dushkevich",
+      "sources": ["wiki-dushkevich"]
+    },
+    {
+      "id": "niyazov",
+      "name": "Артём Ниязов",
+      "linkType": "игрок клуба",
+      "link": "Поехал на чемпионат мира 2016 года игроком «Дины»",
+      "knownFor": "Серебряный призёр ЧМ-2016, игрок испанского «Эль-Позо» и сборной России",
+      "knownForAsOf": "2025",
+      "photoSlot": "alumni-niyazov",
+      "sources": ["ria-2016", "wiki-russia-futsal"]
+    },
+    {
+      "id": "kutuzov",
+      "name": "Данил Кутузов",
+      "linkType": "игрок клуба",
+      "link": "Играл за «Дину» в 2012–2017 годах, чемпион России 2014",
+      "knownFor": "Серебряный призёр Евро-2014 и Евро-2016, затем — «Норильский никель»",
+      "photoSlot": "alumni-kutuzov",
+      "sources": ["wiki-kutuzov"]
+    }
+  ],
+  "sectionTitleOptions": ["Из «Дины» — в большую игру", "Школа «Дины»", "Наши в большой игре"]
+}

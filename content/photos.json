@@ -1,0 +1,284 @@
+{
+  "note": "Файлы кладутся в public/photos/<file>. Пока файла нет, сайт показывает типографический фолбэк. Перед публикацией у каждого фото должны быть права на использование (поле credit).",
+  "slots": [
+    {
+      "id": "hero-main",
+      "file": "hero-main.jpg",
+      "aspect": "16:9",
+      "era": "1990-е",
+      "required": true,
+      "description": "Главный кадр: эмоция «Дины» 90-х — празднование, трибуна в жёлто-зелёных шарфах или Ерёменко в атаке",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "1991"
+    },
+    {
+      "id": "era-1991",
+      "file": "era-1991.jpg",
+      "aspect": "4:5",
+      "era": "1991–1992",
+      "required": true,
+      "description": "Первый состав, чемпион СНГ",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "1991"
+    },
+    {
+      "id": "era-dynasty",
+      "file": "era-dynasty.jpg",
+      "aspect": "4:5",
+      "era": "1993–2000",
+      "required": true,
+      "description": "Командное фото золотого состава с трофеями",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "93–00"
+    },
+    {
+      "id": "era-europe",
+      "file": "era-europe.jpg",
+      "aspect": "4:5",
+      "era": "1995",
+      "required": true,
+      "description": "Победа в Турнире европейских чемпионов 1995",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "1995"
+    },
+    {
+      "id": "era-intercontinental",
+      "file": "era-intercontinental.jpg",
+      "aspect": "4:5",
+      "era": "1997",
+      "required": true,
+      "description": "Межконтинентальный кубок 1997, «Дина» — «Интер»",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "1997"
+    },
+    {
+      "id": "era-euro-1999",
+      "file": "era-euro-1999.jpg",
+      "aspect": "4:5",
+      "era": "1999",
+      "required": true,
+      "description": "Сборная России — чемпион Европы 1999 (Гранада)",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "1999"
+    },
+    {
+      "id": "era-2014",
+      "file": "era-2014.jpg",
+      "aspect": "4:5",
+      "era": "2014",
+      "required": true,
+      "description": "Чемпионство 2014 года",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "2014"
+    },
+    {
+      "id": "era-2017",
+      "file": "era-2017.jpg",
+      "aspect": "4:5",
+      "era": "2017",
+      "required": false,
+      "description": "Кубок России 2017",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "2017"
+    },
+    {
+      "id": "legend-eremenko",
+      "file": "legend-eremenko.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ЕРЁМЕНКО"
+    },
+    {
+      "id": "legend-verizhnikov",
+      "file": "legend-verizhnikov.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ВЕРИЖНИКОВ"
+    },
+    {
+      "id": "legend-denisov",
+      "file": "legend-denisov.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ДЕНИСОВ"
+    },
+    {
+      "id": "legend-alekberov",
+      "file": "legend-alekberov.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "АЛЕКБЕРОВ"
+    },
+    {
+      "id": "legend-belyi",
+      "file": "legend-belyi.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "БЕЛЫЙ"
+    },
+    {
+      "id": "legend-markin",
+      "file": "legend-markin.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": true,
+      "description": "Портрет или игровой кадр",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "МАРКИН"
+    },
+    {
+      "id": "legend-gorin",
+      "file": "legend-gorin.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ГОРИН"
+    },
+    {
+      "id": "legend-abyanov",
+      "file": "legend-abyanov.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "АБЯНОВ"
+    },
+    {
+      "id": "legend-tkachuk",
+      "file": "legend-tkachuk.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ТКАЧУК"
+    },
+    {
+      "id": "legend-kozlov",
+      "file": "legend-kozlov.jpg",
+      "aspect": "3:4",
+      "era": "любая",
+      "required": false,
+      "description": "Портрет основателя",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "КОЗЛОВ"
+    },
+    {
+      "id": "legend-bondarev",
+      "file": "legend-bondarev.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": false,
+      "description": "Портрет тренера",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "БОНДАРЕВ"
+    },
+    {
+      "id": "legend-andreev",
+      "file": "legend-andreev.jpg",
+      "aspect": "3:4",
+      "era": "1990-е",
+      "required": false,
+      "description": "Портрет тренера",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "АНДРЕЕВ"
+    },
+    {
+      "id": "legend-yudin",
+      "file": "legend-yudin.jpg",
+      "aspect": "3:4",
+      "era": "2014",
+      "required": false,
+      "description": "Портрет тренера",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ЮДИН"
+    },
+    {
+      "id": "alumni-dushkevich",
+      "file": "alumni-dushkevich.jpg",
+      "aspect": "1:1",
+      "era": "любая",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "ДУШКЕВИЧ"
+    },
+    {
+      "id": "alumni-niyazov",
+      "file": "alumni-niyazov.jpg",
+      "aspect": "1:1",
+      "era": "любая",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "НИЯЗОВ"
+    },
+    {
+      "id": "alumni-kutuzov",
+      "file": "alumni-kutuzov.jpg",
+      "aspect": "1:1",
+      "era": "любая",
+      "required": false,
+      "description": "Портрет",
+      "caption": null,
+      "credit": null,
+      "fallbackText": "КУТУЗОВ"
+    }
+  ],
+  "gallery": {
+    "title": "История в 20 фотографиях",
+    "maxItems": 20,
+    "slotIds": [
+      "hero-main",
+      "era-1991",
+      "era-dynasty",
+      "era-europe",
+      "era-intercontinental",
+      "era-euro-1999",
+      "era-2014",
+      "era-2017"
+    ],
+    "note": "Галерея показывает только слоты, для которых файл существует. Дополнительные кадры добавляются в slots с id вида gallery-NN и в этот список."
+  }
+}

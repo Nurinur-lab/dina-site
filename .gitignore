@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env.production
+screenshots/
+test-results/
+playwright-report/
+.lighthouseci/
+_scaffold/
+.DS_Store
+.claude/settings.local.json
