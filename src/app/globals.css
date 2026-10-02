@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/*
+ * Токены дизайн-системы «Возвращение» (CLAUDE.md, раздел 5).
+ * Полная типографика и утилиты будут добавлены в фазе 1.
+ */
+:root {
+  --night: #0a0f1e;
+  --night-2: #121a2f;
+  --ivory: #eee9df;
+  --mist: #9aa3b5;
+  --pushkar: #f2c21b;
+  --field: #1e8c45;
+  --shield: #1f4fbf;
+  --crown: #c9a24b;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-ivory: var(--ivory);
+  --color-mist: var(--mist);
+  --color-pushkar: var(--pushkar);
+  --color-field: var(--field);
+  --color-shield: var(--shield);
+  --color-crown: var(--crown);
+}
+
+body {
+  background: var(--night);
+  color: var(--ivory);
+}

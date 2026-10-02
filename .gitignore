@@ -1,6 +1,7 @@
 node_modules/
 .next/
 out/
+build/
 .env
 .env.local
 .env.production
@@ -9,5 +10,10 @@ test-results/
 playwright-report/
 .lighthouseci/
 _scaffold/
+scaffold-tmp/
 .DS_Store
 .claude/settings.local.json
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+*.pem

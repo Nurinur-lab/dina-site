@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+screenshots
+test-results
+playwright-report
+.lighthouseci
+package-lock.json
+content/*.json
+public

@@ -1,0 +1,43 @@
+{
+  "name": "dina-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run lint && npm run test:e2e",
+    "lhci": "lhci autorun",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "dependencies": {
+    "motion": "^14.0.0",
+    "next": "16.3.8",
+    "nodemailer": "^10.0.13",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
