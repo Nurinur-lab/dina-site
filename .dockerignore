@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.git
+.env
+.env.local
+.env.production
+screenshots
+test-results
+playwright-report
+.lighthouseci
+_scaffold
+scaffold-tmp
+*.md
+docs
+.claude
