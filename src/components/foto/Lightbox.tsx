@@ -111,7 +111,7 @@ export function Lightbox({
                 />
               ) : (
                 <div className="bg-night-2 flex h-full w-full items-center justify-center">
-                  <span className="text-figure text-ivory/35 px-[8%] text-center text-6xl uppercase md:text-8xl">
+                  <span className="text-figure text-ivory/45 px-[8%] text-center text-6xl uppercase md:text-8xl">
                     {item.fallbackText}
                   </span>
                 </div>

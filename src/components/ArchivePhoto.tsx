@@ -54,7 +54,7 @@ export function ArchivePhoto({
         className={`bg-night-2 relative flex items-center justify-center overflow-hidden ${sizingClassName} ${className}`}
         style={{ ...sizingStyle, containerType: "inline-size" }}
       >
-        <span className="text-figure text-ivory/35 px-[10%] text-center [font-size:15cqi] break-words uppercase">
+        <span className="text-figure text-ivory/45 px-[10%] text-center [font-size:15cqi] break-words uppercase">
           {slot.fallbackText}
         </span>
         <div className="absolute inset-x-0 bottom-0 flex h-[3%] min-h-[3px]">

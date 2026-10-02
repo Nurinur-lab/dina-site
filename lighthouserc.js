@@ -14,9 +14,11 @@ module.exports = {
         "http://127.0.0.1:3200/lyudi",
       ],
       numberOfRuns: 3,
-      settings: {
-        preset: "mobile",
-      },
+      // Профиль по умолчанию в Lighthouse CLI уже мобильный (throttling + mobile UA);
+      // пресет "mobile" в текущей версии не существует (есть только perf/experimental/desktop).
+      // throttlingMethod оставлен по умолчанию ("simulate") — см. PROGRESS.md: на этой
+      // песочнице "devtools" (реальный троттлинг) даёт ещё более шумные и заниженные цифры
+      // из-за нестабильного общего CPU, а не из-за реальных проблем сайта.
     },
     assert: {
       assertions: {
