@@ -1,7 +1,7 @@
-import fs from "node:fs";
-import path from "node:path";
 import Image from "next/image";
 import { getPhotoSlot } from "@/lib/content";
+import { photoFileExists } from "@/lib/photo-fs";
+import { isArchivalEra, parseAspectRatio } from "@/lib/photo-meta";
 
 /**
  * Фото пока нет (CLAUDE.md, раздел 5 «Фото»). Компонент берёт файл по id из
@@ -12,24 +12,6 @@ import { getPhotoSlot } from "@/lib/content";
  * Архив до 2010 года обрабатывается как ч/б с тонировкой в сторону --night,
  * 2012 и позже — цветной с приглушённой насыщенностью.
  */
-
-function parseAspectRatio(aspect: string): string {
-  const [w, h] = aspect.split(":").map(Number);
-  if (!w || !h) return "1 / 1";
-  return `${w} / ${h}`;
-}
-
-/** Первый найденный 4-значный год в строке эпохи — используется, чтобы решить, архивное фото или нет. */
-function firstYear(era: string): number | null {
-  const match = era.match(/\d{4}/);
-  return match ? Number(match[0]) : null;
-}
-
-function isArchival(era: string): boolean {
-  const year = firstYear(era);
-  if (year === null) return false; // "любая" и подобное — без ч/б обработки
-  return year < 2010;
-}
 
 type ArchivePhotoProps = {
   slotId: string;
@@ -50,8 +32,7 @@ export function ArchivePhoto({
   fillParent = false,
 }: ArchivePhotoProps) {
   const slot = getPhotoSlot(slotId);
-  const filePath = path.join(process.cwd(), "public", "photos", slot.file);
-  const fileExists = fs.existsSync(filePath);
+  const fileExists = photoFileExists(slot.file);
   const aspectRatio = parseAspectRatio(slot.aspect);
   const sizingStyle = fillParent ? undefined : { aspectRatio };
   const sizingClassName = fillParent ? "h-full w-full" : "";
@@ -85,7 +66,7 @@ export function ArchivePhoto({
     );
   }
 
-  const archival = isArchival(slot.era);
+  const archival = isArchivalEra(slot.era);
 
   return (
     <div className={`relative overflow-hidden ${sizingClassName} ${className}`} style={sizingStyle}>
