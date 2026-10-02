@@ -1,18 +1,22 @@
 @import "tailwindcss";
 
 /*
- * Токены дизайн-системы «Возвращение» (CLAUDE.md, раздел 5).
- * Полная типографика и утилиты будут добавлены в фазе 1.
+ * Дизайн-система «Возвращение» (CLAUDE.md, раздел 5).
+ * SPORT × HERITAGE × PREMIUM × EDITORIAL.
  */
 :root {
-  --night: #0a0f1e;
-  --night-2: #121a2f;
-  --ivory: #eee9df;
-  --mist: #9aa3b5;
-  --pushkar: #f2c21b;
-  --field: #1e8c45;
-  --shield: #1f4fbf;
-  --crown: #c9a24b;
+  /* Цвета из герба и клубных жёлто-зелёных шарфов */
+  --night: #0a0f1e; /* основной фон */
+  --night-2: #121a2f; /* приподнятые поверхности */
+  --ivory: #eee9df; /* основной текст */
+  --mist: #9aa3b5; /* вторичный текст */
+  --pushkar: #f2c21b; /* жёлтый «пушкарей» */
+  --field: #1e8c45; /* зелёный */
+  --shield: #1f4fbf; /* синий — только в полосе-подписи */
+  --crown: #c9a24b; /* золото короны — редко, главная кнопка */
+
+  /* Контраст на границах поверхностей */
+  --line: rgb(238 233 223 / 12%);
 }
 
 @theme inline {
@@ -24,9 +28,77 @@
   --color-field: var(--field);
   --color-shield: var(--shield);
   --color-crown: var(--crown);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display);
+  --font-text: var(--font-text);
 }
 
-body {
-  background: var(--night);
-  color: var(--ivory);
+@layer base {
+  html {
+    background: var(--night);
+  }
+
+  body {
+    background: var(--night);
+    color: var(--ivory);
+    font-family: var(--font-text), system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+
+  /* Видимый фокус клавиатуры везде */
+  :focus-visible {
+    outline: 2px solid var(--pushkar);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--pushkar);
+    color: var(--night);
+  }
+}
+
+@layer utilities {
+  /* Большие цифры блока «Масштаб» и слова-«призрака» */
+  .text-figure {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  .container-site {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-inline: 2.5rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

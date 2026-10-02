@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // `next dev` иначе дописывает служебный блок в CLAUDE.md при каждом запуске —
+  // этот файл в проекте принадлежит владельцу и не должен автоматически меняться.
+  agentRules: false,
 };
 
 export default nextConfig;
