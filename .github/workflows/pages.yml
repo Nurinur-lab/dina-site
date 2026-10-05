@@ -1,0 +1,59 @@
+name: Превью на GitHub Pages
+
+# Статическая превью-копия сайта (PREVIEW_STATIC=1, см. PROGRESS.md) — НЕ основная
+# VPS-сборка. Форма обращения в превью не отправляет данные (нет серверного рантайма
+# на статическом хостинге), страницы закрыты от индексации (noindex).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Установка зависимостей
+        run: npm ci
+
+      - name: Сборка статического превью
+        run: npm run build:preview
+        env:
+          NEXT_PUBLIC_SITE_URL: https://nurinur-lab.github.io/dina-site
+
+      - name: Настройка Pages
+        uses: actions/configure-pages@v5
+
+      - name: Загрузка артефакта сборки
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Публикация на GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
