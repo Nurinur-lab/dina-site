@@ -5,6 +5,7 @@ import { GalleryProvider } from "@/components/foto/GalleryProvider";
 import { GalleryTrigger } from "@/components/foto/GalleryTrigger";
 import type { LightboxItem } from "@/components/foto/types";
 import { PageHeader } from "@/components/PageHeader";
+import { withBasePath } from "@/lib/base-path";
 import { getPhotoSlot, photos } from "@/lib/content";
 import { photoFileExists } from "@/lib/photo-fs";
 import { isArchivalEra } from "@/lib/photo-meta";
@@ -24,7 +25,7 @@ export default function FotoPage() {
     const hasFile = photoFileExists(slot.file);
     return {
       id: slot.id,
-      src: hasFile ? `/photos/${slot.file}` : null,
+      src: hasFile ? withBasePath(`/photos/${slot.file}`) : null,
       alt: slot.caption ?? slot.description,
       caption: slot.caption,
       credit: slot.credit,

@@ -1,6 +1,6 @@
 import { club } from "@/lib/content";
 import type { Legend } from "@/lib/schemas";
-import { SITE_URL } from "@/lib/seo";
+import { absoluteUrl, SITE_URL } from "@/lib/seo";
 
 /**
  * Schema.org JSON-LD (CLAUDE.md, раздел 8). Только подтверждённые поля —
@@ -59,7 +59,7 @@ export function buildBreadcrumbSchema(items: Array<{ name: string; path: string 
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: new URL(item.path, SITE_URL).toString(),
+      item: absoluteUrl(item.path),
     })),
   };
 }

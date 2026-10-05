@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:preview": "PREVIEW_STATIC=1 next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",

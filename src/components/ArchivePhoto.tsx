@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 import { getPhotoSlot } from "@/lib/content";
 import { photoFileExists } from "@/lib/photo-fs";
 import { isArchivalEra, parseAspectRatio } from "@/lib/photo-meta";
@@ -71,7 +72,7 @@ export function ArchivePhoto({
   return (
     <div className={`relative overflow-hidden ${sizingClassName} ${className}`} style={sizingStyle}>
       <Image
-        src={`/photos/${slot.file}`}
+        src={withBasePath(`/photos/${slot.file}`)}
         alt={slot.caption ?? slot.description}
         fill
         sizes={sizes}

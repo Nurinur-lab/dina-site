@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { mainNav } from "@/config/nav";
+import { withBasePath } from "@/lib/base-path";
 import { club } from "@/lib/content";
 import { MobileMenu } from "./MobileMenu";
 
@@ -14,7 +15,7 @@ export function Header() {
           aria-label={`${club.shortName} — на главную`}
         >
           <Image
-            src="/brand/logo-full.png"
+            src={withBasePath("/brand/logo-full.png")}
             alt=""
             width={30}
             height={44}

@@ -4,6 +4,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { club } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 
+const isPreview = process.env.PREVIEW_STATIC === "1";
+
 export const metadata: Metadata = {
   ...buildMetadata({
     title: "Политика конфиденциальности",
@@ -11,8 +13,13 @@ export const metadata: Metadata = {
       "Политика обработки персональных данных сайта ИФК «Дина» в соответствии с Федеральным законом № 152-ФЗ.",
     path: "/politika",
   }),
-  // Реквизиты оператора ещё не подтверждены — страница пока черновик, индексировать её рано.
-  robots: club.requisites ? { index: true, follow: true } : { index: false, follow: true },
+  // Превью на GitHub Pages — демо-копия, всегда noindex, вне зависимости от реквизитов.
+  // Иначе: реквизиты оператора ещё не подтверждены — страница пока черновик, индексировать рано.
+  robots: isPreview
+    ? { index: false, follow: false }
+    : club.requisites
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
 };
 
 /**

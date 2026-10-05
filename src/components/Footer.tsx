@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DiagonalStripe } from "./DiagonalStripe";
 import { footerNav } from "@/config/nav";
+import { withBasePath } from "@/lib/base-path";
 import { club } from "@/lib/content";
 
 export function Footer() {
@@ -15,7 +16,7 @@ export function Footer() {
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
             <Image
-              src="/brand/logo-full.png"
+              src={withBasePath("/brand/logo-full.png")}
               alt=""
               width={48}
               height={72}

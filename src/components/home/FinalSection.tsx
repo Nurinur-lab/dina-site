@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import { withBasePath } from "@/lib/base-path";
 import { club } from "@/lib/content";
 
 /** Блок 8 — «Финал». Большой логотип, полное название, слоган, контакты (если есть), ссылка на форму. */
@@ -12,7 +13,7 @@ export function FinalSection() {
       className="container-site flex flex-col items-center gap-8 py-24 text-center md:py-32"
     >
       <Image
-        src="/brand/logo-full.png"
+        src={withBasePath("/brand/logo-full.png")}
         alt=""
         width={120}
         height={180}

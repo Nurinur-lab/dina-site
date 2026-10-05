@@ -220,3 +220,65 @@
 ## Известные ограничения
 
 - `npm audit`: 14 high/moderate/low уязвимостей в транзитивных dev-зависимостях `@lhci/cli` (Lighthouse CI). Не влияет на продакшен-бандл сайта. Можно будет обновить при выходе новой мажорной версии `@lhci/cli`.
+
+## Дополнение (после фазы 7): публикация на GitHub и статическое превью на GitHub Pages
+
+Задача пришла уже после завершения фаз 0–7 из основного плана. Не меняет VPS-сборку
+(`output: "standalone"` при `BUILD_STANDALONE=1`) — добавляет отдельный, независимый режим
+`PREVIEW_STATIC=1` для статического экспорта (`npm run build:preview`), нужный только чтобы
+показать превью на `https://nurinur-lab.github.io/dina-site/`.
+
+**Что добавлено:**
+- `next.config.ts` — при `PREVIEW_STATIC=1`: `output: "export"`, `basePath`/`assetPrefix`
+  `"/dina-site"`, `images.unoptimized: true`, и `turbopack.resolveAlias`, подменяющий
+  `ContactForm` на `ContactForm.preview.tsx` (статическая заглушка без Server Action —
+  настоящая форма несовместима с `output: "export"`, см. решения ниже).
+- `src/components/klub/ContactForm.preview.tsx` — визуально похожа на настоящую форму, поля
+  задизейблены, вместо отправки — сообщение «Это демо-версия сайта, форма заработает после
+  запуска» (по требованию задачи).
+- `src/lib/base-path.ts` (`withBasePath()`) — у `next/image` в `unoptimized`-режиме `src` не
+  получает `basePath` автоматически (в отличие от `next/link` и файловых иконок-конвенций,
+  которые получают). Применено во всех местах с прямым путём к файлу из `public/`: герб клуба
+  в `Header`/`Footer`/`FinalSection`, фото в `ArchivePhoto` и `/foto`.
+- `export const dynamic = "force-static"` добавлен в `sitemap.ts`, `robots.ts` и все 5
+  `opengraph-image.tsx` — обязательное требование `output: "export"` для файловых
+  metadata-роутов; безвредно и для обычной сборки.
+- `robots.ts` и `buildMetadata()` (в `src/lib/seo.ts`) при `PREVIEW_STATIC=1` отдают
+  `noindex`/`Disallow: /` на всех страницах — превью не должно индексироваться.
+- `.github/workflows/pages.yml` — при каждом push в `main` собирает превью и публикует через
+  `actions/deploy-pages`.
+- `npm run build:preview` — локальный алиас на `PREVIEW_STATIC=1 next build`.
+
+**Найденные и исправленные при тестовой сборке реальные баги (не специфичные для Pages —
+могли проявиться в любом сценарии, где `NEXT_PUBLIC_SITE_URL` указывает на адрес с
+собственным путём):**
+1. **`absoluteUrl()` в `src/lib/seo.ts` ломала canonical/OG/sitemap-ссылки**, если у
+   `SITE_URL` есть свой путь (как у `https://user.github.io/dina-site`): `new URL(path, SITE_URL)`
+   с ведущим `/` в `path` трактует его как абсолютный путь от корня домена и отбрасывает путь
+   базы — получалось `https://nurinur-lab.github.io/` вместо `.../dina-site/istoriya`.
+   Исправлено на строковую склейку. Задело также `sitemap.ts` и `buildBreadcrumbSchema()` в
+   `structured-data.ts` — у них была своя копия того же паттерна `new URL(path, SITE_URL)`,
+   поправлены все разом через общий `absoluteUrl()`.
+2. **`<img src>` у `next/image` не получает `basePath`** в `images.unoptimized` режиме, в
+   отличие от `next/link` и иконок — герб клуба указывал на `/brand/logo-full.png` вместо
+   `/dina-site/brand/logo-full.png` и не грузился бы на Pages. Исправлено через `withBasePath()`.
+3. **`/politika` игнорировала превью-режим в `robots`**: у страницы своя логика (`noindex`,
+   пока `requisites` не заполнены), которая перекрывала общий флаг превью. Добавлена явная
+   проверка `PREVIEW_STATIC` впереди логики про реквизиты.
+
+Все три бага проверены вручную: собрана `out/`-версия с `basePath`, поднята локально через
+`python3 -m http.server`, скриншоты Playwright подтвердили — герб, фото-фолбэки, шрифты,
+навигация и демо-сообщение формы отображаются корректно под `/dina-site/`.
+
+**Решения, принятые без владельца:**
+- Server Action формы несовместим с `output: "export"` в принципе (статический хостинг не
+  выполняет серверный код) — единственный правильный выбор был подменить компонент формы
+  на статическую заглушку именно для превью-сборки, не трогая настоящую форму на VPS.
+- `turbopack.resolveAlias` выбран вместо дублирования whole-page веток (`if/else` с двумя
+  импортами) — единственный способ гарантированно не затащить модуль с `"use server"` в граф
+  статической сборки; обычный `{isPreview ? <A/> : <B/>}` не помог бы, так как статический
+  `import` в JS не может быть условным, а бандлер включает оба модуля в граф независимо от
+  того, какая ветка реально рендерится.
+- Реальная (VPS) сборка проверена на регрессию после всех этих правок: `npm run build` и
+  `npm run check` (60 тестов, включая весь `e2e/contact-form.spec.ts` с настоящим Server
+  Action) — зелёные, без изменений в поведении.

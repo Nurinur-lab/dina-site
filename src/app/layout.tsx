@@ -17,7 +17,13 @@ export const metadata: Metadata = {
     template: `%s — ${club.shortName}`,
   },
   description: club.tagline,
-  robots: { index: true, follow: true },
+  // Превью на GitHub Pages (PREVIEW_STATIC=1) — демо-копия, не должна индексироваться.
+  // Каждая страница переопределяет это через buildMetadata() в src/lib/seo.ts —
+  // здесь задаётся значение по умолчанию на случай, если где-то его не вызвали.
+  robots:
+    process.env.PREVIEW_STATIC === "1"
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
